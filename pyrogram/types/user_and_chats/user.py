@@ -251,7 +251,8 @@ class User(Object, Update):
         can_read_all_group_messages: Optional[bool] = None,
         has_main_web_app: Optional[bool] = None,
         paid_message_star_count: Optional[int] = None,
-        raw: Optional[Union["raw.base.User", "raw.base.UserStatus"]] = None
+        raw: Optional[Union["raw.base.User", "raw.base.UserStatus"]] = None,
+        allows_users_to_create_topics: bool = None
     ):
         super().__init__(client)
 
@@ -296,10 +297,12 @@ class User(Object, Update):
         self.can_read_all_group_messages = can_read_all_group_messages
         self.has_main_web_app = has_main_web_app
         self.paid_message_star_count = paid_message_star_count
+        self.allows_users_to_create_topics = allows_users_to_create_topics
         self.raw = raw
+        
 
     @property
-    def full_name(self) -> str:
+    def full_name(self) -> str:allows_users_to_create_topics: bool = None,
         return " ".join(filter(None, [self.first_name, self.last_name])) or None
 
     @property
@@ -381,6 +384,7 @@ class User(Object, Update):
             can_read_all_group_messages=getattr(user, "bot_chat_history", None),
             has_main_web_app=getattr(user, "bot_has_main_app", None),
             paid_message_star_count=getattr(user, "send_paid_messages_stars", None),
+            parsed_user.allows_users_to_create_topics = getattr(user, "bot_forum_can_manage_topics", None),
             raw=user,
             client=client
         )
