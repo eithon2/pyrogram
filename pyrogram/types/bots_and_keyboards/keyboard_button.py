@@ -279,4 +279,7 @@ class KeyboardButton(Object):
                 style=raw_style
             )
         else:
-            return raw.types.KeyboardButton(text=self.text)
+            return raw.types.KeyboardButton(
+                text=self.text,
+                style=raw_style
+            )
