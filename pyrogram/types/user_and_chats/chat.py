@@ -783,7 +783,8 @@ class Chat(Object):
             profile_color=types.ChatColor._parse_profile_color(user.profile_color),
             paid_message_star_count=user.send_paid_messages_stars,
             raw=user,
-            client=client
+            client=client,
+            is_direct_messages=channel.monoforum
         )
 
     @staticmethod
