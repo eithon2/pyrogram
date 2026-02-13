@@ -46,7 +46,7 @@ from .gift_for_resale_order import GiftForResaleOrder
 from .media_area_type import MediaAreaType
 from .stories_privacy_rules import StoriesPrivacyRules
 from .user_status import UserStatus
-
+from .button_style import ButtonStyle
 __all__ = [
     'BusinessSchedule',
     'ChatAction',
@@ -77,5 +77,6 @@ __all__ = [
     'GiftForResaleOrder',
     'MediaAreaType',
     'StoriesPrivacyRules',
+    'ButtonStyle',
     'UserStatus'
 ]
